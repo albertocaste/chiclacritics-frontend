@@ -1,13 +1,15 @@
 import { Routes } from '@angular/router';
-import { GameComponent } from './ui/components/game/game.component';
+import { MainLayoutComponent } from './ui/pages/main-layout/main-layout.component';
+import { gameListRoutes } from './ui/components/game-list/game-list.routes';
 
 export const routes: Routes = [
     {
-        path: 'games',
-        component: GameComponent,
+        path: '',
+        component: MainLayoutComponent,
         data: {
             title: 'games',
             breadcrumb: 'games'
-        }
+        },
+        children: [ ...gameListRoutes]
     }
 ];
