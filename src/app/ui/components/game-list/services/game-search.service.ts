@@ -10,7 +10,7 @@ export class GameSearchService {
 
   constructor() { }
 
-  private _httpClient = inject(HttpClient);
+  private _httpClient = inject(HttpClient, );
 	private readonly URL_PRODUCTS = environment.api + '/game';
 
   // Cambiar el any de la respuesta por el tipo de dato que toque
