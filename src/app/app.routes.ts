@@ -21,5 +21,13 @@ export const routes: Routes = [
             title: 'login',
             breadcrumb: 'login'
         }
+    },
+    {
+        path: 'signin',
+        component: LoginComponent,
+        data: {
+            title: 'signin',
+            breadcrumb: 'signin'
+        }
     }
 ];

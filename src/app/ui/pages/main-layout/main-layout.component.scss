@@ -1,22 +1,3 @@
-.search-bar {
-    background-color: rgba(255, 255, 255, 0.16);
-    color: rgba(255, 255, 255, 0.6);
-}
-header {
-    text-transform: uppercase;
-    h1 {
-        font-size: 18px;
-        font-weight: 900;
-        color: #fff;
-    }
-    a {
-        font-size: 14px;
-        font-weight: 400;
-        color: #fff;
-        border: none;
-        white-space: nowrap;
-    }
-}
 .content {
     display: grid;
     grid-template-columns: 300px 1fr;
