@@ -4,11 +4,12 @@ import { FormsModule, FormControl, FormGroup, Validators, ReactiveFormsModule } 
 import { UserUseCase } from '../../../modules/user/application/user-use-case.service';
 import { User } from '../../../modules/user/domain/user.model';
 import { USER_API_PROVIDER } from '../../../modules/user/infrastructure/providers/api-user.provider';
+import { SpinLoaderComponent } from '../../components/spin-loader/spin-loader.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, SpinLoaderComponent],
   providers: [
     UserUseCase,
     USER_API_PROVIDER
@@ -47,10 +48,18 @@ export class LoginComponent implements OnInit {
   public onSubmit(submitEvent: SubmitEvent) {
     console.log(submitEvent);
     console.log(this.form);
-    this._userUseCase.save(new User(
-      this.form.controls['email'].value,
-      this.form.controls['username'].value,
-      this.form.controls['password'].value
-    ));
+    if(this.urlIsLogin) {
+      /* this._userUseCase.login(new User(
+        this.form.controls['email'].value,
+        this.form.controls['password'].value,
+        null
+      )); */
+    } else {
+      this._userUseCase.save(new User(
+        this.form.controls['email'].value,
+        this.form.controls['password'].value,
+        this.form.controls['username'].value
+      ));
+    }
   }
 }

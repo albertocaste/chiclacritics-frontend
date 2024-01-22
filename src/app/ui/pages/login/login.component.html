@@ -7,5 +7,11 @@
     <input type="password" formControlName="password" class="h-12 w-full bg-black/30 pl-5 mb-5 rounded text-white" placeholder="{{ urlIsLogin ? 'Password' : 'Create a password'}}">
 
 
-    <button type="submit" class="h-12 w-full bg-white pl-5 rounded text-black" [disabled]="!form.valid" [class.opacity-50]="!form.valid" >{{ urlIsLogin ? 'Log in' : 'Sign in'}}</button>
+    <button type="submit" class="h-12 w-full bg-white pl-5 rounded text-black" [disabled]="!form.valid" [class.opacity-10]="!form.valid" >
+        @if(ngForm.submitted){
+            <spin-loader [color]="'grey'" [size]="'3'" ></spin-loader>
+        } @else {
+            {{ urlIsLogin ? 'Log in' : 'Sign in'}}
+        }
+    </button>
 </form>
