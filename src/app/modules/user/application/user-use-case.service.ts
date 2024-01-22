@@ -1,18 +1,21 @@
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Game } from '../domain/user.model';
-//import { GameApiService } from '../infrastructure/game-api.interface';
-//import { HTTP_GAME_SERVICE } from '../infrastructure/providers/game-api.provider';
+import { User, UserModelResponse } from '../domain/user.model';
+import { UserRepository } from '../infrastructure/user.interface';
+import { HTTP_API_USER_REPOSITORY } from '../infrastructure/providers/api-user.provider';
+import { ApiUserRepository } from '../infrastructure/repositories/api-user-repository.service';
 
 @Injectable({ providedIn: 'root' })
-export class ProductUseCaseService {
-	/* constructor(@Inject(HTTP_GAME_SERVICE) private GameApiService: IProductApiService) {}
+export class UserUseCase {
+	constructor(
+		@Inject(HTTP_API_USER_REPOSITORY) public _apiUserRepository: ApiUserRepository
+	) {}
 
-	get(): Observable<Game[]> {
-		return this.GameApiService.getProducts();
-	}
-
-	create(newProduct: Game): Observable<Game> {
-		return this.GameApiService.save(newProduct);
+	/* search(): Observable<User> {
+		return this._apiUserRepository.search();
 	} */
+
+	save(newUser: User): Observable<UserModelResponse> {
+		return this._apiUserRepository.save(newUser);
+	}
 }

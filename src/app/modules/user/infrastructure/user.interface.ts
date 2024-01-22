@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
-import { Game, GameResponse, GameModelResponse } from '../domain/user.model';
+import { User, UserResponse, UserModelResponse } from '../domain/user.model';
 
-export interface GameRepository {
-	get(): Observable<GameResponse[]>;
-	save(newProduct: Game): Observable<GameModelResponse>;
+export interface UserRepository {
+	get(): Observable<UserResponse[]>;
+	save(newUser: User): Observable<UserModelResponse>;
 }
