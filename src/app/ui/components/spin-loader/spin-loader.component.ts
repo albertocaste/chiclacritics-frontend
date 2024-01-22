@@ -9,6 +9,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './spin-loader.component.scss'
 })
 export class SpinLoaderComponent {
-  @Input() color: string = 'grey';
+  @Input() color: string = 'gray';
   @Input() size: string = '3';
 }
