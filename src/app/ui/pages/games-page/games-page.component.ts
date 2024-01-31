@@ -18,6 +18,9 @@ export class GamesPageComponent implements OnInit {
   private _gameUseCase = inject(GameUseCase);
 
   ngOnInit(): void {
-    this._gameUseCase.search();
+    let games = this._gameUseCase.search().subscribe(async resp => {
+      console.log(resp);
+    });
+    console.log(games);
   }
 }

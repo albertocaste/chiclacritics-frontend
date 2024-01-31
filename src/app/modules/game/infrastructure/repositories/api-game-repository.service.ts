@@ -8,7 +8,7 @@ import { GameRepositoryContract } from '../../domain/contracts/game-respository-
 @Injectable()
 export class ApiGameRepository implements GameRepositoryContract {
 	private _httpClient = inject(HttpClient);
-	private readonly BASE_URL_BACKEND_API = environment.BASE_URL_BACKEND_API + '/games';
+	private readonly BASE_URL_BACKEND_API = environment.BASE_URL_BACKEND_API + 'games';
 
 	search(): Observable<GameResponse[]> {
 		return this._httpClient.get<GameResponse[]>(this.BASE_URL_BACKEND_API).pipe(
