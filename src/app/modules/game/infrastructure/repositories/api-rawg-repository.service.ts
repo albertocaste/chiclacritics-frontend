@@ -3,13 +3,18 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../../environments/environment';
 import { GameRepositoryContract } from '../../domain/contracts/game-respository-contract.interface';
+import { SearchResult } from '../../domain/game.model';
 
 @Injectable()
-export class ApiGameRepository implements GameRepositoryContract {
+export class ApiRawgGameRepository implements GameRepositoryContract {
 	private httpClient = inject(HttpClient);
-	private readonly BASE_URL_BACKEND_API = environment.BASE_URL_BACKEND_API + 'games';
+	private readonly BASE_URL_RAWG_API = environment.BASE_URL_RAWG_API + 'games';
 
-	search(): Observable<any> {
-		return this.httpClient.get<any>(this.BASE_URL_BACKEND_API);
+	search(): Observable<SearchResult> {
+		return this.httpClient.get<SearchResult>(
+            this.BASE_URL_RAWG_API
+        );
 	}
+
+
 }

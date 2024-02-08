@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { MainLayoutComponent } from './ui/pages/main-layout/main-layout.component';
-import { gameListRoutes } from './ui/components/game-list/game-list.routes';
-import { GamesPageComponent } from './ui/pages/games-page/games-page.component';
-import { LoginComponent } from './ui/pages/login/login.component';
 
-export const routes: Routes = [
+import { LoginComponent } from './ui/features/login/login.component';
+import { MainLayoutComponent } from './ui/features/main-layout/main-layout.component';
+import { GAME_LIST_ROUTES } from './ui/features/games-list/game-list.routes';
+
+export const ROUTES: Routes = [
     {
         path: '',
         component: MainLayoutComponent,
@@ -12,7 +12,7 @@ export const routes: Routes = [
             title: 'games',
             breadcrumb: 'games'
         },
-        children: [ ...gameListRoutes]
+        children: [ ...GAME_LIST_ROUTES]
     },
     {
         path: 'login',

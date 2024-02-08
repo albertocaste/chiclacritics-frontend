@@ -1,16 +1,21 @@
-import { Inject, Injectable } from '@angular/core';
+import { Inject, Injectable, WritableSignal, signal } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Game } from '../domain/game.model';
-import { ApiGameRepository } from '../infrastructure/repositories/api-game-repository.service';
-import { HTTP_API_GAME_REPOSITORY } from '../infrastructure/providers/api-game.provider';
+import { ApiRawgGameRepository } from '../infrastructure/repositories/api-rawg-repository.service';
+import { HTTP_API_RAWG_GAME_REPOSITORY } from '../infrastructure/providers/api-rawg-game.provider';
+import { Game, SearchResult } from '../domain/game.model';
 
 @Injectable({ providedIn: 'root' })
-export class GameUseCase {
+export class GameUseCaseService {
+	$games: WritableSignal<Game[]> = signal([]);
 	constructor(
-		@Inject(HTTP_API_GAME_REPOSITORY) public _apiGameRepository: ApiGameRepository
+		@Inject(HTTP_API_RAWG_GAME_REPOSITORY) public apiGameRepository: ApiRawgGameRepository
 	) {}
 
-	search(): Observable<Game[]> {
-		return this._apiGameRepository.search();
+	search(): Observable<SearchResult> {
+		return this.apiGameRepository.search();
 	}
+
+	setGames(games: Game[]): void {
+        this.$games.set(games);
+    }
 }

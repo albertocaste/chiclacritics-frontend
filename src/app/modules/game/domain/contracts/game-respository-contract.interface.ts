@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
-import { Game, GameResponse, GameModelResponse } from '../game.model';
+import { SearchResult } from '../game.model';
 
 export interface GameRepositoryContract {
-	search(): Observable<GameResponse[]>;
+	search(): Observable<SearchResult>;
 }

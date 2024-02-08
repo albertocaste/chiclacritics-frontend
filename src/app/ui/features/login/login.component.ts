@@ -4,7 +4,7 @@ import { FormsModule, FormControl, FormGroup, Validators, ReactiveFormsModule } 
 import { UserUseCase } from '../../../modules/user/application/user-use-case.service';
 import { User } from '../../../modules/user/domain/user.model';
 import { USER_API_PROVIDER } from '../../../modules/user/infrastructure/providers/api-user.provider';
-import { SpinLoaderComponent } from '../../components/spin-loader/spin-loader.component';
+import { SpinLoaderComponent } from '../../shared/spin-loader/spin-loader.component';
 
 @Component({
   selector: 'app-login',
